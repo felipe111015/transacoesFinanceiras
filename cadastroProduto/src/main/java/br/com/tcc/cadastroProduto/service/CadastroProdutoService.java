@@ -1,5 +1,7 @@
 package br.com.tcc.cadastroProduto.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,11 @@ public class CadastroProdutoService {
 		Produto novoProduto = repository.save(produto);
 
 		return novoProduto;
+	}
+
+	public Optional<Produto> buscarProdutoByNumero(Long numero) {
+		Optional<Produto> produto = repository.findById(numero);
+
+		return produto;
 	}
 }
