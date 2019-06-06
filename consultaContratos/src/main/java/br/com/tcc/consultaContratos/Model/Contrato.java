@@ -14,13 +14,12 @@ import javax.persistence.OneToMany;
 public class Contrato {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long numeroContrato;
 	private double valor;
 	private int qtdeParcelas;
 	private LocalDate dataContratação;
-	
-	
+
 	@ManyToOne
 	private Cliente cliente;
 

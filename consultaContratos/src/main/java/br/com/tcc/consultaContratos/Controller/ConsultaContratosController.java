@@ -29,10 +29,10 @@ public class ConsultaContratosController {
 	public ResponseEntity<List<Contrato>> consultaContratos(@RequestBody InPutCpfDto cpf) {
 		try {
 			List<Contrato> contratos = serviceConsultaContratos.buscaContratos(cpf.getCpf());
-			return ResponseEntity.status(HttpStatus.FOUND).body(contratos);
+			return ResponseEntity.status(HttpStatus.OK).body(contratos);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 	}
 
