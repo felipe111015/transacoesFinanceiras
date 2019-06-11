@@ -1,11 +1,13 @@
 package br.com.tcc.consultaContratos.Model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produto {
@@ -15,6 +17,9 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private BigDecimal valor;
+	
+	@OneToMany
+	private List<Contrato> contrato;
 
 	public long getId() {
 		return id;
@@ -48,5 +53,14 @@ public class Produto {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+
+	public List<Contrato> getContrato() {
+		return contrato;
+	}
+
+	public void setContrato(List<Contrato> contrato) {
+		this.contrato = contrato;
+	}
+	
 
 }

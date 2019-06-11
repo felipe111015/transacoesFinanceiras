@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import br.com.tcc.consultaContratos.Model.Contrato;
 
 @Repository
-public interface ConsultaContratoRepository extends CrudRepository<Contrato, Long> {
+public interface ContratoRepository extends CrudRepository<Contrato, Long> {
 	
 	@Query("SELECT c  FROM Contrato c where c.cliente.cpf = :cpf")
 	public List<Contrato> buscarContratos(@Param("cpf") String cpf);

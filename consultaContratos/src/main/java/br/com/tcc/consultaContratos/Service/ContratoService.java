@@ -6,17 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.tcc.consultaContratos.Model.Contrato;
-import br.com.tcc.consultaContratos.Repository.ConsultaContratoRepository;
+import br.com.tcc.consultaContratos.Repository.ContratoRepository;
 
 @Service
-public class ConsultaContratoService {
+public class ContratoService {
 
 	@Autowired
-	ConsultaContratoRepository repository;
+	ContratoRepository repository;
 
 	public List<Contrato> buscaContratos(String cpf) {
 		List<Contrato> contratos = repository.buscarContratos(cpf);
 
 		return contratos;
+	}
+
+	public void criarContrato(Contrato contrato) {
+		repository.save(contrato);
+
 	}
 }
