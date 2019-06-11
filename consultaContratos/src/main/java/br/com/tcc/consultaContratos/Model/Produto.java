@@ -1,6 +1,5 @@
 package br.com.tcc.consultaContratos.Model;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,22 +10,36 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Produto {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer codigoProduto;
 	private String nome;
 	private String descricao;
-	private BigDecimal valor;
-	
+	private double valor;
+
 	@OneToMany
 	private List<Contrato> contrato;
 
-	public long getId() {
-		return id;
+	public Produto() {
+
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public Produto(Integer codigoProduto, String nome, String descricao, double valor, List<Contrato> contrato) {
+		super();
+		this.codigoProduto = codigoProduto;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.contrato = contrato;
+	}
+
+	public Integer getCodigoProduto() {
+		return codigoProduto;
+	}
+
+	public void setId(Integer codigoProduto) {
+		this.codigoProduto = codigoProduto;
 	}
 
 	public String getNome() {
@@ -45,12 +58,11 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public BigDecimal getValor() {
-
+	public double getValor() {
 		return valor;
 	}
 
-	public void setValor(BigDecimal valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 
@@ -61,6 +73,5 @@ public class Produto {
 	public void setContrato(List<Contrato> contrato) {
 		this.contrato = contrato;
 	}
-	
 
 }

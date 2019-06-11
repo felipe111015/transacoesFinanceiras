@@ -1,13 +1,11 @@
 package br.com.tcc.consultaContratos.Controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,7 +43,7 @@ public class FinanceiroController {
 	}
 
 	@SuppressWarnings("unchecked")
-	@PostMapping(value = "/contratos/contratto")
+	@PostMapping(value = "/contratos/novoContrato")
 	public ResponseEntity<Contrato> novoContrato(@RequestBody Contrato contrato) {
 		try {
 			serviceContratos.criarContrato(contrato);
@@ -55,25 +53,13 @@ public class FinanceiroController {
 		}
 	}
 
-	@RequestMapping(value = "/produtos/novoProduto")
+	@PostMapping(value = "/produto/novoProduto")
 	public ResponseEntity<Produto> novoProduto(@RequestBody Produto produto) {
 		try {
 			Produto novoProduto = produtoService.novoProduto(produto);
 			return ResponseEntity.status(HttpStatus.OK).body(novoProduto);
 		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
-	}
-
-	@GetMapping(value = "produtos/buscaProduto/{id}")
-	public ResponseEntity<Optional<Produto>> buscarPorNumero(@PathVariable("id") long id) {
-		try {
-			Optional<Produto> produto = produtoService.listaProdutoById(id);
-
-			return ResponseEntity.status(HttpStatus.OK).body(produto);
-		} catch (Exception e) {
 			e.printStackTrace();
-
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}

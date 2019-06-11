@@ -16,6 +16,19 @@ public class Cliente {
 	private String conta;
 	@OneToMany
 	private List<Contrato> contrato;
+	
+	public Cliente(){
+		
+	}
+
+	public Cliente(String cpf, String nome, String agencia, String conta, List<Contrato> contrato) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.agencia = agencia;
+		this.conta = conta;
+		this.contrato = contrato;
+	}
 
 	public String getCpf() {
 		return cpf;

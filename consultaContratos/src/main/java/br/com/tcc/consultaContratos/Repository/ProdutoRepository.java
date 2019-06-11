@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.tcc.consultaContratos.Model.Produto;
 
 @Repository
-public interface ProdutoRepository extends CrudRepository<Produto, Long> {
+public interface ProdutoRepository extends CrudRepository<Produto, Integer> {
 
 }

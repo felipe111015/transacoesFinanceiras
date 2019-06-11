@@ -14,24 +14,30 @@ import javax.persistence.OneToMany;
 public class Contrato {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long numeroContrato;
 	private double valor;
 	private int qtdeParcelas;
 	private LocalDate dataContratação;
-	
-	
+
 	@ManyToOne
 	private Cliente cliente;
 
 	@OneToMany
 	private List<Produto> produto;
 
-	public List<Produto> getProduto() {
-		return produto;
+	public Contrato() {
+
 	}
 
-	public void setProduto(List<Produto> produto) {
+	public Contrato(long numeroContrato, double valor, int qtdeParcelas, LocalDate dataContratação, Cliente cliente,
+			List<Produto> produto) {
+		super();
+		this.numeroContrato = numeroContrato;
+		this.valor = valor;
+		this.qtdeParcelas = qtdeParcelas;
+		this.dataContratação = dataContratação;
+		this.cliente = cliente;
 		this.produto = produto;
 	}
 
@@ -73,6 +79,14 @@ public class Contrato {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
 	}
 
 }
