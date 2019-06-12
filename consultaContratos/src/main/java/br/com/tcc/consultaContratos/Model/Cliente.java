@@ -2,11 +2,12 @@ package br.com.tcc.consultaContratos.Model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Cliente {
@@ -17,7 +18,7 @@ public class Cliente {
 	private String agencia;
 	private String conta;
 	@OneToMany
-	@JsonManagedReference
+	@JsonBackReference
 	private List<Contrato> contrato;
 
 	public Cliente() {

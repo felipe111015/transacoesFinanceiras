@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Contrato {
@@ -21,29 +20,26 @@ public class Contrato {
 	private long numeroContrato;
 	private double valor;
 	private int qtdeParcelas;
-	private LocalDate dataContratação;
-
+	private LocalDate dataContratacao;
 	@ManyToOne
-	@JsonBackReference
 	private Cliente cliente;
-
 	@OneToMany
-	@JsonManagedReference
-	private List<Produto> produto;
+	@JsonBackReference
+	private List<Produto> produtos;
 
 	public Contrato() {
 
 	}
 
-	public Contrato(long numeroContrato, double valor, int qtdeParcelas, LocalDate dataContratação, Cliente cliente,
-			List<Produto> produto) {
+	public Contrato(long numeroContrato, double valor, int qtdeParcelas, LocalDate dataContratacao, Cliente cliente,
+			List<Produto> produtos) {
 		super();
 		this.numeroContrato = numeroContrato;
 		this.valor = valor;
 		this.qtdeParcelas = qtdeParcelas;
-		this.dataContratação = dataContratação;
+		this.dataContratacao = dataContratacao;
 		this.cliente = cliente;
-		this.produto = produto;
+		this.produtos = produtos;
 	}
 
 	public long getNumeroContrato() {
@@ -70,12 +66,12 @@ public class Contrato {
 		this.qtdeParcelas = qtdeParcelas;
 	}
 
-	public LocalDate getDataContratação() {
-		return dataContratação;
+	public LocalDate getDataContratacao() {
+		return dataContratacao;
 	}
 
-	public void setDataContratação(LocalDate dataContratação) {
-		this.dataContratação = dataContratação;
+	public void setDataContratacao(LocalDate dataContratacao) {
+		this.dataContratacao = dataContratacao;
 	}
 
 	public Cliente getCliente() {
@@ -86,12 +82,12 @@ public class Contrato {
 		this.cliente = cliente;
 	}
 
-	public List<Produto> getProduto() {
-		return produto;
+	public List<Produto> getProdutos() {
+		return produtos;
 	}
 
-	public void setProduto(List<Produto> produto) {
-		this.produto = produto;
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 }

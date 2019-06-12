@@ -16,4 +16,9 @@ public class ProdutoService {
 		Produto novoProduto = produtoRepository.save(produto);
 		return novoProduto;
 	}
+
+	public Iterable<Produto> listaProdutos() {
+		Iterable<Produto> listaProdutos = produtoRepository.findAll();
+		return listaProdutos;
+	}
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.tcc.consultaContratos.Model.Contrato;
+import br.com.tcc.consultaContratos.Model.Produto;
 import br.com.tcc.consultaContratos.Repository.ContratoRepository;
 
 @Service
@@ -23,5 +24,15 @@ public class ContratoService {
 	public void criarContrato(Contrato contrato) {
 		repository.save(contrato);
 
+	}
+
+	public Contrato calculaValorContrato(Contrato contrato) {
+		List<Produto> produtos = contrato.getProdutos();
+
+		for (Produto produto : produtos) {
+			double valorTotal = contrato.getValor() + produto.getValor();
+			contrato.setValor(valorTotal);
+		}
+		return contrato;
 	}
 }

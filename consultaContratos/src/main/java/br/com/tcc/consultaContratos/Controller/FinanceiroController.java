@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.tcc.consultaContratos.DTO.InPutCpfDto;
@@ -31,7 +32,7 @@ public class FinanceiroController {
 	@Autowired
 	ClienteService clienteService;
 
-	@GetMapping(value = "/contratos/contratos")
+	@GetMapping(value = "/contrato/contratos")
 	public ResponseEntity<List<Contrato>> consultaContratos(@RequestBody InPutCpfDto cpf) {
 		try {
 			List<Contrato> contratos = serviceContratos.buscaContratos(cpf.getCpf());
@@ -42,12 +43,12 @@ public class FinanceiroController {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	@PostMapping(value = "/contratos/novoContrato")
+	@RequestMapping(value = "/contrato/novoContrato", method = RequestMethod.POST)
 	public ResponseEntity<Contrato> novoContrato(@RequestBody Contrato contrato) {
 		try {
-			serviceContratos.criarContrato(contrato);
-			return (ResponseEntity<Contrato>) ResponseEntity.status(HttpStatus.OK);
+			Contrato contratoFinal = serviceContratos.calculaValorContrato(contrato);
+			serviceContratos.criarContrato(contratoFinal);
+			return ResponseEntity.status(HttpStatus.OK).body(contratoFinal);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
@@ -58,6 +59,17 @@ public class FinanceiroController {
 		try {
 			Produto novoProduto = produtoService.novoProduto(produto);
 			return ResponseEntity.status(HttpStatus.OK).body(novoProduto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
+
+	@GetMapping(value = "/produto/listaProdutos")
+	public ResponseEntity<Iterable<Produto>> listaProdutos() {
+		try {
+			Iterable<Produto> listaProdutos = produtoService.listaProdutos();
+			return ResponseEntity.status(HttpStatus.OK).body(listaProdutos);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
