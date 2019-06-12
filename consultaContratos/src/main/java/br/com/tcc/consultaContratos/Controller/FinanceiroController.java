@@ -31,7 +31,7 @@ public class FinanceiroController {
 	@Autowired
 	ClienteService clienteService;
 
-	@GetMapping(value = "/contratos/listaContratosCliente")
+	@GetMapping(value = "/contratos/contratos")
 	public ResponseEntity<List<Contrato>> consultaContratos(@RequestBody InPutCpfDto cpf) {
 		try {
 			List<Contrato> contratos = serviceContratos.buscaContratos(cpf.getCpf());
@@ -81,9 +81,7 @@ public class FinanceiroController {
 
 			Iterable<Cliente> listaClientes = clienteService.listaClientes();
 
-			if (listaClientes != null) {
-				return ResponseEntity.status(HttpStatus.OK).body(listaClientes);
-			}
+			return ResponseEntity.status(HttpStatus.OK).body(listaClientes);
 
 		} catch (Exception e) {
 			e.printStackTrace();

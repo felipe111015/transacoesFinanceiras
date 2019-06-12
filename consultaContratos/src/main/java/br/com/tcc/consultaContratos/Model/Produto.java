@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Produto {
 
@@ -19,6 +21,7 @@ public class Produto {
 	private double valor;
 
 	@OneToMany
+	@JsonManagedReference
 	private List<Contrato> contrato;
 
 	public Produto() {

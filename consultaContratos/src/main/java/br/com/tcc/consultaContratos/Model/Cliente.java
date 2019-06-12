@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Cliente {
 
@@ -15,10 +17,11 @@ public class Cliente {
 	private String agencia;
 	private String conta;
 	@OneToMany
+	@JsonManagedReference
 	private List<Contrato> contrato;
-	
-	public Cliente(){
-		
+
+	public Cliente() {
+
 	}
 
 	public Cliente(String cpf, String nome, String agencia, String conta, List<Contrato> contrato) {

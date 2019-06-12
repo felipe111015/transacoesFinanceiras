@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Contrato {
 
@@ -21,9 +24,11 @@ public class Contrato {
 	private LocalDate dataContratação;
 
 	@ManyToOne
+	@JsonBackReference
 	private Cliente cliente;
 
 	@OneToMany
+	@JsonManagedReference
 	private List<Produto> produto;
 
 	public Contrato() {
