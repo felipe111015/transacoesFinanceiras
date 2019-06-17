@@ -1,0 +1,85 @@
+unit Splash;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Objects,
+  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdHTTP, FMX.Ani;
+
+type
+  TForm2 = class(TForm)
+    Label1: TLabel;
+    Layout1: TLayout;
+    Image1: TImage;
+    IdHTTP1: TIdHTTP;
+    ProgressBar1: TProgressBar;
+    Timer1: TTimer;
+    procedure FormShow(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { Private declarations }
+    procedure carregaApp();
+    function verificaConexao():boolean;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.fmx}
+
+uses Inicial;
+
+
+procedure TForm2.FormShow(Sender: TObject);
+begin
+    carregaApp();
+end;
+
+procedure TForm2.Timer1Timer(Sender: TObject);
+begin
+    ProgressBar1.Value:= ProgressBar1.Value + 10;
+
+    if ProgressBar1.Value= 100 then
+    begin  
+        Timer1.Enabled:= False;
+        Timer1.DisposeOf;
+        
+        carregaApp();
+    end;
+end;
+
+procedure TForm2.carregaApp();
+begin
+    if verificaConexao() then
+    begin
+        if FormInicial= nil then
+          Application.CreateForm(TFormInicial, FormInicial);
+
+          FormInicial.Show;
+
+        Self.DisposeOf;
+    end
+end;
+
+function TForm2.verificaConexao():boolean;
+begin
+    try
+      //IdHTTP1.Get('http://oclab.com.br:9080/financeiro/cliente/listaClientes');
+
+      result:= True;
+    except
+        on E: Exception do
+        begin
+            ShowMessage(E.Message);
+            result:= False
+        end;
+    end;
+end;
+
+end.

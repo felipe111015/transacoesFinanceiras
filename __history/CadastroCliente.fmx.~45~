@@ -1,0 +1,291 @@
+object FormCadastroCliente: TFormCadastroCliente
+  Left = 0
+  Top = 0
+  ClientHeight = 480
+  ClientWidth = 640
+  Fill.Kind = Solid
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnClose = FormClose
+  OnKeyUp = FormKeyUp
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object actionBar: TRectangle
+    Align = Top
+    Fill.Color = xFF3D9ADC
+    Size.Width = 640.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object lblTitulo: TLabel
+      Align = Client
+      StyledSettings = [Family]
+      Size.Width = 496.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claWhite
+      Text = 'Cadastro do Cliente'
+      TabOrder = 3
+      TabStop = False
+    end
+    object btAlterarCliente: TButton
+      Align = Right
+      IconTintColor = claWhite
+      Position.X = 544.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'composetoolbutton'
+      TabOrder = 1
+      OnClick = btAlterarClienteClick
+    end
+    object btExcluirCliente: TButton
+      Align = Right
+      IconTintColor = claWhite
+      Position.X = 592.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'trashtoolbutton'
+      TabOrder = 2
+      OnClick = btExcluirClienteClick
+    end
+    object btVoltar: TButton
+      Align = Left
+      IconTintColor = claWhite
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'backtoolbutton'
+      TabOrder = 0
+      OnClick = btVoltarClick
+    end
+  end
+  object lblSubTitulo: TLabel
+    Align = Top
+    StyledSettings = [Family, FontColor]
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 68.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 14.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    Text = 'Dados do cliente'
+    TabOrder = 3
+    TabStop = False
+  end
+  object layoutAll: TLayout
+    Align = Top
+    Position.Y = 95.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 200.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    TabStop = False
+    object layoutCampos: TLayout
+      Align = Client
+      Margins.Right = 10.000000000000000000
+      Size.Width = 550.000000000000000000
+      Size.Height = 156.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      TabStop = False
+      object cpConta: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 6
+        ReturnKeyType = Done
+        Position.Y = 111.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Size.Width = 550.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object cpAgencia: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 5
+        ReturnKeyType = Next
+        Position.Y = 74.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Size.Width = 550.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object cpCpf: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 4
+        ReturnKeyType = Next
+        Position.Y = 37.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Size.Width = 550.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object cpNome: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 3
+        ReturnKeyType = Next
+        Size.Width = 550.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object layoutLabels: TLayout
+      Align = Left
+      Margins.Left = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Size.Width = 70.000000000000000000
+      Size.Height = 156.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      TabStop = False
+      object lblNome: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Margins.Top = 10.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 70.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        Text = 'Nome'
+        TabOrder = 3
+        TabStop = False
+      end
+      object lblCpf: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Margins.Top = 10.000000000000000000
+        Position.Y = 43.000000000000000000
+        Size.Width = 70.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        Text = 'CPF'
+        TabOrder = 2
+        TabStop = False
+      end
+      object lblAgencia: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Margins.Top = 10.000000000000000000
+        Position.Y = 76.000000000000000000
+        Size.Width = 70.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        Text = 'Agencia'
+        TabOrder = 1
+        TabStop = False
+      end
+      object Label4: TLabel
+        Align = Top
+        StyledSettings = [Family, Style, FontColor]
+        Margins.Top = 10.000000000000000000
+        Position.Y = 109.000000000000000000
+        Size.Width = 70.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        Text = 'Conta'
+        TabOrder = 0
+        TabStop = False
+      end
+    end
+    object btSalvar: TButton
+      Align = Bottom
+      Margins.Left = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 156.000000000000000000
+      Size.Width = 620.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'SALVAR'
+      OnClick = btSalvarClick
+    end
+  end
+  object listaContratos: TListView
+    ItemAppearanceClassName = 'TListItemAppearance'
+    ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 135.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    OnItemClick = listaContratosItemClick
+  end
+  object Layout1: TLayout
+    Align = Top
+    Position.Y = 295.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    object Label1: TLabel
+      Align = Client
+      StyledSettings = [Family, FontColor]
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 582.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'Contratos'
+      TabOrder = 0
+      TabStop = False
+    end
+    object btNovoContrato: TButton
+      Align = Right
+      IconTintColor = claBlack
+      Position.X = 592.000000000000000000
+      Position.Y = 1.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'additembutton'
+      TabOrder = 1
+    end
+  end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'UTF-8, *;q=0.8'
+    BaseURL = 'http://oclab.com.br:9080/financeiro/contratos/contratos'
+    Params = <>
+    HandleRedirects = True
+    Left = 392
+    Top = 72
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <
+      item
+        name = 'nome'
+        Value = '42340998808'
+      end>
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 320
+    Top = 72
+  end
+  object RESTResponse1: TRESTResponse
+    Left = 240
+    Top = 72
+  end
+end

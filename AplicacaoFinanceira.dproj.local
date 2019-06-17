@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/06/06 10:40:13.000.594,=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/06 10:55:49.000.369,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Inicial.fmx</Transaction>
+    <Transaction>2019/06/06 10:55:49.000.369,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Inicial.pas</Transaction>
+    <Transaction>2019/06/06 10:55:59.000.532,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\AplicacaoFinanceira.dproj</Transaction>
+    <Transaction>2019/06/06 10:57:30.000.757,=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/06 11:04:35.000.276,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Cadastro.fmx</Transaction>
+    <Transaction>2019/06/06 11:04:35.000.276,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Cadastro.pas</Transaction>
+    <Transaction>2019/06/06 11:04:45.000.943,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Cadastro.fmx=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\CadastroCliente.fmx</Transaction>
+    <Transaction>2019/06/06 11:04:45.000.943,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Cadastro.pas=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\CadastroCliente.pas</Transaction>
+    <Transaction>2019/06/10 08:55:40.000.309,=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/10 11:03:24.000.138,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\CadastroContrato.pas=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/10 11:03:24.000.138,C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\CadastroContrato.fmx=C:\Users\Karoline Matos\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2019/06/11 15:17:04.000.167,=C:\Users\Filipe\Desktop\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/11 15:17:11.000.854,C:\Users\Filipe\Desktop\Projects\Unit1.fmx=C:\Users\Filipe\Desktop\Projects\CadastroProduto.fmx</Transaction>
+    <Transaction>2019/06/11 15:17:11.000.854,C:\Users\Filipe\Desktop\Projects\Unit1.pas=C:\Users\Filipe\Desktop\Projects\CadastroProduto.pas</Transaction>
+    <Transaction>2019/06/11 20:56:30.000.515,=C:\Users\Karoline Matos\Desktop\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/06/12 00:02:37.000.571,C:\Users\Karoline Matos\Desktop\Projects\Splash.pas=C:\Users\Karoline Matos\Desktop\Projects\Unit2.pas</Transaction>
+    <Transaction>2019/06/12 00:02:37.000.571,C:\Users\Karoline Matos\Desktop\Projects\Splash.fmx=C:\Users\Karoline Matos\Desktop\Projects\Unit2.fmx</Transaction>
+    <Transaction>2019/06/16 17:30:40.704,=C:\Users\Karoline Matos\Desktop\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/16 17:31:03.991,C:\Users\Karoline Matos\Desktop\Projects\Login.fmx=C:\Users\Karoline Matos\Desktop\Projects\Unit1.fmx</Transaction>
+    <Transaction>2019/06/16 17:31:03.991,C:\Users\Karoline Matos\Desktop\Projects\Login.pas=C:\Users\Karoline Matos\Desktop\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/16 20:39:46.103,C:\Users\Karoline Matos\Desktop\backup\AplicacaoFinanceira.dproj=C:\Users\Karoline Matos\Desktop\Projects\AplicacaoFinanceira.dproj</Transaction>
+    <Transaction>2019/06/16 21:48:20.272,C:\Users\Karoline Matos\Desktop\Projects\AplicacaoFinanceira.dproj=C:\Users\Karoline Matos\Desktop\backup\AplicacaoFinanceira.dproj</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="51c8cc8a"/>
+	</ActiveMobileDevice>
+	<BT_BuildType>Debug</BT_BuildType>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="android-support-v4.dex.jar"/>
+    <File Path="cloud-messaging.dex.jar"/>
+    <File Path="fmx.dex.jar"/>
+    <File Path="google-analytics-v2.dex.jar"/>
+    <File Path="google-play-billing.dex.jar"/>
+    <File Path="google-play-licensing.dex.jar"/>
+    <File Path="google-play-services.dex.jar"/>
+    <File Path="Inicial.pas"/>
+    <File Path="Inicial.fmx"/>
+    <File Path="CadastroCliente.pas"/>
+    <File Path="CadastroCliente.fmx"/>
+    <File Path="CadastroContrato.pas"/>
+    <File Path="CadastroContrato.fmx"/>
+    <File Path="CadastroProduto.pas"/>
+    <File Path="CadastroProduto.fmx"/>
+    <File Path="Splash.pas"/>
+    <File Path="Splash.fmx"/>
+    <File Path="Login.pas"/>
+    <File Path="Login.fmx"/>
+  </ProjectSortOrder>
+</BorlandProject>

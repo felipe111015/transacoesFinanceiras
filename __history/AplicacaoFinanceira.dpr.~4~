@@ -1,0 +1,15 @@
+program AplicacaoFinanceira;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  Inicial in 'Inicial.pas' {FormInicial},
+  CadastroCliente in 'CadastroCliente.pas' {FormCadastro};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFormInicial, FormInicial);
+  Application.Run;
+end.

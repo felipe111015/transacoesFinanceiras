@@ -1,0 +1,176 @@
+unit rcs_str_mobile;
+
+interface
+
+uses System.SysUtils, FMX.Controls, System.Classes, FMX.StdCtrls, FMX.Dialogs,
+     DateUtils,
+     System.UITypes, System.IniFiles, System.IOUtils, FMX.Edit, FMX.Forms, FMX.Graphics;
+
+     function strTrans(stString:string; stOLD:string; stNEW:string): string;
+     function pathZ(arq:string):string;
+     function pathV(p:string;sub:string=''):string;
+     function posC(pc:string;pc1:string):integer;
+     function CnpjCpfValido(n:string):BOOLEAN;
+     function testCPFCGC(AValue:string): Integer;
+     function picInt(p:string):integer;
+
+
+var
+   {$IFDEF ANDROID}
+     plfStartStr:Integer=0;
+     plfEndStr  :Integer=1;
+   {$ENDIF}
+
+   {$IFDEF WIN64}
+     plfStartStr:Integer=1;
+     plfEndStr  :Integer=0;
+   {$ENDIF}
+
+   {$IFDEF WIN32}
+     plfStartStr:Integer=1;
+     plfEndStr  :Integer=0;
+   {$ENDIF}
+
+   {$IFDEF IOS}
+     plfStartStr:Integer=0;
+     plfEndStr  :Integer=1;
+   {$ENDIF}
+
+   RCS_STATUSBAR:Boolean;
+   RCS_ORIENTACAO:Boolean=False;
+   RCS_ECONOMIA:Boolean=False;
+   RCS_TAMANHO:integer=0;
+
+   MESAS_INICIO:Integer = 1;
+   MESAS_FINAL :Integer = 15;
+   COMANDAS_INICIO:Integer = 501;
+   COMANDAS_FINAL :Integer = 600;
+   TIMER_SERVICOS:string ='';
+   MESAS_LIVRES:boolean = False;
+   RESTAURACAO_LOCAL:Boolean = False;
+   COMANDA_NPED_RAPIDO:Boolean = False;
+
+implementation
+
+function strTrans(stString:string; stOLD:string; stNEW:string): string;
+begin
+     result:=stringreplace(stString,stOLD,stNEW,[rfReplaceAll]);
+end;
+
+function pathZ(arq:string):string;
+begin
+     result:=pathv(TPath.GetDocumentsPath + PathDelim + arq);
+end;
+
+function pathV(p:string;sub:string=''):string;
+var
+   d:string;
+begin
+     p:=p + sub;
+     p:=strTrans(p,'/','\');
+
+     d:=PathDelim + PathDelim;
+
+     while posc(p,d) > 0 do
+           p:=strTrans(p,d,PathDelim);
+
+     result:=p;
+end;
+
+function posC(pc:string;pc1:string):integer;
+var
+   tm,
+   i:integer;
+begin
+     result:=0;
+     tm    :=length(pc1);
+
+     for i:=1 to length(pc) do
+     begin
+          if copy(pc,i,tm) = pc1 then
+          begin
+               result:=i;
+               break;
+          end;
+     end;
+end;
+
+function CnpjCpfValido(n:string):BOOLEAN;
+var
+   v:integer;
+begin
+     v:=TestCPFCGC(n);
+     result:=(v = 2) or (v = 3);
+end;
+
+function testCPFCGC(AValue:string): Integer;
+var
+   localDoc : string;
+   soma,
+   ii,jj,
+   digito,
+   qmode:Integer;
+begin
+    result  :=-1;
+    AValue  :=pegaSoNumeros(Avalue);
+    localDoc:=trim(AValue);
+    qmode   :=length(AValue);
+
+    if qmode in [11,14] then
+    else
+        result:=1;
+
+    if(qmode = 0) or (result = 1)then
+       exit;
+
+    result:=0;
+
+    for jj := 0 to 1 do
+    begin
+        Soma := 0;
+        case qmode of
+             14: for ii := 1 to (12 + jj) do
+                     if ii < (5 + jj) then
+                        Inc(soma, picInt(Copy(localDoc,ii,1))*( 6+jj-ii))
+                     else
+                        Inc(soma, picInt(Copy(localDoc,ii,1))*(14+jj-ii));
+             11: for ii := 1 to (9 + jj) do
+                     Inc(Soma, picInt(localDoc[10+jj-ii]) * (ii+1));
+        end;
+
+        digito := 11 - (soma mod 11);
+
+        if digito > 9 then
+           digito := 0;
+
+        case qmode of
+             14: if digito <> picInt(localDoc[(13+jj) - plfEndStr]) then
+                    exit; {dígito inválido}
+              11: if digito <> picInt(localDoc[(10+jj) - plfEndStr]) then
+                    exit; {dígito inválido}
+        end;
+    end;
+
+    case qmode of
+         14:result:=2;
+         11:result:=3;
+    end;
+end;
+
+function picInt(p:string):integer;
+var
+   ng:string;
+begin
+     p :=trim(p);
+     ng:='';
+
+     if copy(p,1,1) = '-' then
+        ng:='-';
+
+     p:=pegaSoNumeros(p);
+     p:=zeDb(p);
+     p:=ng+p;
+     result:=strtoint(p);
+end;
+
+end.

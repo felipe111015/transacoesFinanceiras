@@ -1,0 +1,93 @@
+unit CadastroProduto;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Controls.Presentation, FMX.Objects, rcs_str_mobile, FMX.Edit, FMX.Layouts;
+
+type
+  TFormCadastroProduto = class(TForm)
+    actionBar: TRectangle;
+    lblTitulo: TLabel;
+    btMenu: TButton;
+    btVoltar: TButton;
+    layoutAll: TLayout;
+    layoutCampos: TLayout;
+    cpValor: TEdit;
+    cpDesc: TEdit;
+    cpNome: TEdit;
+    layoutLabels: TLayout;
+    lblNome: TLabel;
+    lblDesc: TLabel;
+    lblValor: TLabel;
+    btSalvar: TButton;
+    lblSubTitulo: TLabel;
+    procedure btVoltarClick(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    idProduto: Integer;
+  end;
+
+var
+  FormCadastroProduto: TFormCadastroProduto;
+
+implementation
+
+{$R *.fmx}
+
+uses Inicial;
+
+procedure TFormCadastroProduto.btSalvarClick(Sender: TObject);
+var
+  arquivo: TFileName;
+  resposta: TJSONValue;
+  json: TStringList;
+begin
+    arquivo:= PathZ('clientes.json');
+    json:= TStringList.create();
+
+    try
+      RESTRequest1.Execute;
+
+      resposta  := RESTResponse1.JSONValue;
+      stringJSON:= resposta.ToString;
+
+      json.Text := StringJSON;
+
+      if not FileExists(PathZ('clientes.json')) then
+        json.SaveToFile(arquivo);
+    except
+        on E: Exception do
+          ShowMessage(E.Message)
+    end;
+end;
+
+procedure TFormCadastroProduto.btVoltarClick(Sender: TObject);
+begin
+    idProduto:= -1;
+
+    FormInicial.Show;
+    Self.Hide;
+end;
+procedure TFormCadastroProduto.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+    Application.Terminate
+end;
+
+procedure TFormCadastroProduto.FormKeyUp(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if Key = vkHardwareBack then
+    btVoltarClick(nil);
+end;
+
+end.

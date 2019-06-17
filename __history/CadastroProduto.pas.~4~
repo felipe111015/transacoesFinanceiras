@@ -1,0 +1,30 @@
+unit CadastroProduto;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Controls.Presentation, FMX.Objects;
+
+type
+  TFormCadastroProduto = class(TForm)
+    actionBar: TRectangle;
+    lblTitulo: TLabel;
+    btMenu: TButton;
+    btVoltar: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    idProduto: Integer;
+  end;
+
+var
+  FormCadastroProduto: TFormCadastroProduto;
+
+implementation
+
+{$R *.fmx}
+
+end.

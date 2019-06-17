@@ -1,0 +1,79 @@
+unit Splash;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Objects,
+  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdHTTP, FMX.Ani;
+
+type
+  TFormSplash = class(TForm)
+    Label1: TLabel;
+    Layout1: TLayout;
+    Image1: TImage;
+    IdHTTP1: TIdHTTP;
+    ProgressBar1: TProgressBar;
+    Timer1: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { Private declarations }
+    procedure carregaApp();
+    function verificaConexao():boolean;
+  public
+    { Public declarations }
+  end;
+
+var
+  FormSplash: TFormSplash;
+
+implementation
+
+{$R *.fmx}
+
+uses Inicial, Login;
+
+
+procedure TFormSplash.Timer1Timer(Sender: TObject);
+begin
+    ProgressBar1.Value:= ProgressBar1.Value + 10;
+
+    if ProgressBar1.Value= 100 then
+    begin  
+        Timer1.Enabled:= False;
+        Timer1.DisposeOf;
+        
+        carregaApp();
+    end;
+end;
+
+procedure TFormSplash.carregaApp();
+begin
+    if verificaConexao() then
+    begin
+        if FormLogin= nil then
+          Application.CreateForm(TFormLogin, FormLogin);
+
+          FormLogin.Show;
+
+        Self.DisposeOf;
+    end
+end;
+
+function TFormSplash.verificaConexao():boolean;
+begin
+    try
+      //IdHTTP1.Get('http://oclab.com.br:9080/financeiro/cliente/listaClientes');
+
+      result:= True;
+    except
+        on E: Exception do
+        begin
+            ShowMessage(E.Message);
+            result:= False
+        end;
+    end;
+end;
+
+end.
