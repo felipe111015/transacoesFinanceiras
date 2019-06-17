@@ -64,7 +64,7 @@ end;
 function TFormSplash.verificaConexao():boolean;
 begin
     try
-      //IdHTTP1.Get('http://oclab.com.br:9080/financeiro/cliente/listaClientes');
+      IdHTTP1.Get('http://oclab.com.br:9080/financeiro/cliente/listaClientes');
 
       result:= True;
     except

@@ -20,7 +20,7 @@ object FormInicial: TFormInicial
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 4
     TabPosition = None
     Sizes = (
@@ -80,7 +80,7 @@ object FormInicial: TFormInicial
             400821841042082184104288275455FD03B25F39A8A7655A700000000049454E
             44AE426082}
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -360,7 +360,7 @@ object FormInicial: TFormInicial
             07D2B5A966BEA7B67EDAF6C99EEFC1BF58C60A000000000000DB2208FE0026B4
             DA353604CFCB0000000049454E44AE426082}
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False

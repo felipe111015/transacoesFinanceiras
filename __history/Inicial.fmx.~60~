@@ -1,0 +1,454 @@
+object FormInicial: TFormInicial
+  Left = 0
+  Top = 0
+  ClientHeight = 480
+  ClientWidth = 640
+  Fill.Kind = Solid
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  OnKeyUp = FormKeyUp
+  OnResize = FormResize
+  OnShow = FormShow
+  DesignerMasterStyle = 3
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 49.000000000000000000
+    TabIndex = 0
+    TabOrder = 4
+    TabPosition = None
+    Sizes = (
+      640s
+      480s
+      640s
+      480s
+      640s
+      480s)
+    object TabItem1: TTabItem
+      CustomIcon.Height = 24
+      CustomIcon.Width = 24
+      CustomIcon = <
+        item
+          Width = 96
+          Height = 96
+          PNG = {
+            89504E470D0A1A0A0000000D4948445200000060000000600806000000E29877
+            38000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            04AF49444154785EED9B4B685C5518C7338F364DBB505A8D98FA0CA25144CC24
+            548B507117498BC6520A6E421E934C1C3759B99C66232EDCC4B428E924A1A068
+            C047292D6D7DA41A2A9584998D108A0BA5501242BB92A4294966E2FFE47E8236
+            99994CE6CEFDCEEDFC7F7038E77C645EDFEFDC93F3656EAA0821841042082115
+            47487A5FD2D3D373B0B1B1F1B1743A7D5342BE2328BDEF40F28FAFADAD5D0904
+            023F9BB1847D872FAF806834FA1E129F44DB811646A82D1289DCC69530EDFC84
+            7FF09B800092FF1192FE21C6FFBD7A8388B542420D24FC24315F1090DE7AB0CD
+            EC40771AAD7D3D909B3368D1E1E1E115676A37BE1080E4EFC67EFF1556F91109
+            15E23CDA7148B8E34CEDC57A0148FE4348FE0524FF8084B6041E33B5BABA7A78
+            6C6CEC9684ACC46A0148FE13E82EA13DBF1E281248B89EC9645A4647476F48C8
+            3AAC15108BC59E43F22E61E53F25A1ED6292DF82EDE8BA33CD0FA4AFC97053F0
+            3CAEE6CCCA3A00493894CD667F7321F98627D1AEE1F4F4BA33B50BEB0420F9C7
+            B0757C8FE1834EC415CC735DC6735B57B0592500098AA1FB122BBFDA89B8873C
+            E717A688732276608D005360A1FB14AD9CC56108224EC96B59F1FB4F5D402291
+            082321A348CC07122A3BE6B570B58DA199E24E155501FDFDFD35B3B3B35F2321
+            1D12F21253517F0B09BB9DA90E6A02E2F1F8BEC5C5C50924FF2D09697018BFF0
+            AF7474743C2C73CF5111D0D7D7F7F8F2F2F22486AF3A113DB0000E84C3E1C9CE
+            CE4E735CF51CCF05747575BD8402CB9CF15F90903A782F0DA150E85A7777F7CB
+            12F20C4F0560BF6D0E06833F6058E744EC01121E45FB51A69EE199009C748E62
+            BFBD8A0F592B21EBC07BDB2743CFF04400567E0F3EDC389AEB0596DF29BB00AC
+            FC13E83E43F3F50D00E5A26C0250600591FC9358F5094CADFFDE418BB2089002
+            EB1B243F2E219203D70560BB7F0005D64524FF6D09913CB82A20168BD5E2A463
+            8E7256FEEDDD0D4C052F4357704D00567E43369B9DC2CA6F96D07DC9CACACA34
+            0AB667655A32AE08E8EDED7D0DDDAF682AE5BCC73C8D627212129A645E12250B
+            C049A7152BDF7C83B5D78954048F40C22FF8EC6FCA7CDB947436C72A88E28D7C
+            5EA105D64E7CEE639148E4CF743AFDBBC48A66DB024C8185E47F8CA1EB27291F
+            61BE617BA7A9A9E96E2A95325B70D1145D2099026B6E6E6E10C3F79D0831E0F4
+            F7495D5D5DFFC0C04056425BA2A82BA0BDBD7DD7D2D2D2B8193A11F22FB8125E
+            59585878A6BEBEFEFCCCCC4C46C205D9F215600A2C58FE0E2FF48684C8E64C54
+            5757B70D0D0DFD2DF3BC6C49008E99FB71D23177A9BD2821929F542693691D19
+            199997794E0A0A70F116C14AE32F2CDA966432F987CC3725AF006C3B07D1995B
+            BD2BE98CEF26F390D00A0929996F20E711528A0CF3F52193BF7D0A166C9B0AC0
+            9EDF85EE1CDA9EF50029853DD8BECF42C2BB32FF1F1B8EA1D876CC1D6A837810
+            BFC1728F9C055BD185D8BD4058DEFBE9EF774AFD7F814AFE33821550803214A0
+            0C05284301CA50803214A08C757580DBFF877B2FB6BD5F5E01CA50803214A00C
+            05284301CA50803214A00C05284301CA50803214A00C05284301CA50803214A0
+            0C05284301CA50803214A00C05284301CA50803214A00C05284301CA50803214
+            400821841042082184104288275455FD03B25F39A8A7655A700000000049454E
+            44AE426082}
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemcustom'
+      TabOrder = 0
+      Text = 'HOME'
+      object actionBar1: TRectangle
+        Align = Top
+        Fill.Color = xFF3D9ADC
+        Size.Width = 640.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblTitulo1: TLabel
+          Align = Client
+          StyledSettings = [Family]
+          Margins.Left = 10.000000000000000000
+          Size.Width = 630.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claWhite
+          TextSettings.WordWrap = False
+          Text = 'Aplica'#231#227'o Financeira'
+          TabOrder = 0
+        end
+      end
+      object layoutBt: TLayout
+        Align = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 58.000000000000000000
+        Size.Width = 620.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object btClientes: TButton
+          Align = Left
+          Size.Width = 137.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnClick = btClientesClick
+          object Rectangle1: TRectangle
+            Align = Client
+            Fill.Color = xFFE6E6E6
+            HitTest = False
+            Size.Width = 137.000000000000000000
+            Size.Height = 60.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object lblBtClientes: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Size.Width = 137.000000000000000000
+              Size.Height = 60.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.HorzAlign = Center
+              Text = 'CLIENTES'
+              TabOrder = 0
+            end
+          end
+        end
+        object btProdutos: TButton
+          Align = Client
+          Margins.Left = 10.000000000000000000
+          Size.Width = 473.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          OnClick = btProdutosClick
+          object Rectangle2: TRectangle
+            Align = Client
+            Fill.Color = xFFE6E6E6
+            HitTest = False
+            Size.Width = 473.000000000000000000
+            Size.Height = 60.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object lblBtProdutos: TLabel
+              Align = Client
+              StyledSettings = [Family, FontColor]
+              Size.Width = 473.000000000000000000
+              Size.Height = 60.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.HorzAlign = Center
+              Text = 'PRODUTOS'
+              TabOrder = 0
+              OnClick = lblBtProdutosClick
+            end
+          end
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+          Width = 96
+          Height = 96
+          PNG = {
+            89504E470D0A1A0A0000000D4948445200000060000000600806000000E29877
+            38000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            060949444154785EED9C5F681C451CC773775ED2B40A17A9D48BA8252096262A
+            54AA208A88B452832D5852544E02692E89CAE94B2BF862C89B0FC53F3D9BE42E
+            9793880F2579694D154950411F54345AA1C414D4822FA9D092448B24F176D7EF
+            6426F572D9DCDE5DE6DCFDADBF0F0CF39BD9D9C9CEEFBB33B3B3D9B91A866118
+            866118866118866118E67F4340C555A3B3B3B339180C1E85B9DFB2AC1D814060
+            BB3CE24D708D57105D4698C0750FA752A9E9950355A26A02B4B5B5D546229137
+            E1F01E244332971C06043985361C4BA7D37FAB3CAD54C531CAF9E770E1CF2019
+            94B92409A20D0F227EA0A9A969747A7ADA90D9FAA88A731A1A1A4EE2C2F7A9A4
+            1F78026D7A4BD95AD13E04F5F4F4B41886F12304A07CE7DB61A04DF7EA9E13B4
+            3BC934CD6E1F3A5F10C27CD0A56C6D54C3518FABD8774000ED6DD32E002EF276
+            65FA0EF4EC3B95A90DED02E0226F54A61FB949C5DAF0E3584D0A16C065580097
+            61015C8605701916C065580097D1FE2EA8ABABCB526645A4D3E9A2D7E454FF66
+            CF77C2A9FE72E11EE0322C80CBB0002EC302B80C0BE0322C80CBB0002EE3B975
+            80D7E17580CF60015C86057019DF0A6059D65584F7603E8FB0D7308C5B43A1D0
+            CD2298A6D984BC47105E461845B9BF101705657208932AA90DDF4DC270D20F08
+            6F2C2C2C9C191B1B5B56D94589C562DBEAEBEB9F85F96A2010B84BE64A50D72C
+            F24EC2CC6002161FEE6AC54F02CCC351C752A954167645D7D0DBDB1B9C9D9D4D
+            C27C018EB750DF3BB95CAE379BCDFE294BE8C72F029CC7D072786060E05795DE
+            14F178FC403018CC414CED434E219E13A0DCF7F9B8513FC7F87EA89A776935A1
+            3E094F85C3E183549D2F202B00EEFCAB889EEEEFEFBF2673684256008CD1090C
+            57BFA92459A8CE015328B717B1E3DF52FB158EE289661F7ACD0E957D19E94984
+            4CB9DFFBEBAE8FAA0047506E4CE6D853E21EB592F780E9AE6F157243101A2816
+            436764CA9EBC3D6A2F21596C1F5C0865C46A785C9C23B3D6A3BBBE7C28CE01E3
+            4E77179C958423CAD9A356740F98EEFAF2F1DC10E4041CD18E71F67D955C0716
+            51F7203A8F72E5DE5CB67BC074D75708B91E609AE60565DA82467755E02C81ED
+            1E30DDF515424E0038C3E9D1B3E27D5C7098DDB9BAEB5B033901E6E6E6FE50A6
+            2D6874C57BD420EEBA3D60BAEB2B849C0098DC6E50A62D68B4D6794D777D8590
+            132097CBDDA2CC8DD8CCEAD8EE5CDDF5AD819C00E1707875F5690B868CCDBC42
+            9E50F17574D757083901E0903DCAB405C7D388CAFE510D9C974324CE5D83EEFA
+            0AA1F82A6214658EA8A42D28F336A25764AA644EA0DEE3CA5E83EEFAF2A1D803
+            1E2B61997F1CE51CBBFF2A28FB49341A7D4D25EDD05DDF75C809808792ED9148
+            24A692B6885715F3F3F34FC111A7902C367C889767E2A7750EF6F5F58921C316
+            DDF5E5437108421BAD99C6C6C66634D254D91BB2FAFA18E67E38467C8E22F805
+            6102E98A5F47C3D4521F4901440C1112434343EFAE641286DC1094C789EEEEEE
+            DDCA260B5501442FF8D434CD2D3249178A029C43D88DE1A715E17B994517CFCD
+            0145F81DA1077344D1FF8651834A0FF80CA1C56FCE17785E003CED7C5C5757F7
+            249CAFFDC3582FE06901E0FC89E5E5E5C3C964724965F90E2FCF0197969696F6
+            8C8C8CCCAB7449241289BAC5C5C54761DE8FB04B05F17BD55B11EA1056C0A249
+            7CEF7F09F145C417107F198D46BF2D5CC1A23D611C17DF203D8C322D88457D3B
+            9197FF7F097183883D065750E627C43388A76A6B6BBF70BA793C29001A2756B8
+            0FE129E71B99531CF559792BCEEB40C3C5D70BDBE491F2C0F9D770FE59981FC0
+            16BE89217D08F166EA9BC4E3723693C97C24B2E4917FF16A0F388D315F6C9870
+            241E8F3F87E87534F46E99E34D20C60CA23EDC54A7658EC48B02588661340F0F
+            0F8BAEBC215805DF86460DC13C207368806B163D210E216645DA8B93F0772538
+            7F27BAF5573049395F809EDA8AE8EB8E8E8E957FD87B4E00DC21E3CAB4A5BDBD
+            7D0B9CFF211A42F6177A71ED778442A1B3E281C18B3DA0E8EB05AC09126880F8
+            5A8D3468C37D785A7BD17302E0CEF859991B21265DBF10F39C008383831795B9
+            11E239DC2FECF2E210E404F957D0AB6018DA4A51005FC102300CC3300CC3300C
+            C3300CC330CC7F424DCD3FE9C09CEBE89E1A230000000049454E44AE426082}
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemcustom'
+      TabOrder = 0
+      Text = 'CLIENTES'
+      OnClick = btVoltar2Click
+      object layoutGeral: TLayout
+        Align = Client
+        Size.Width = 640.000000000000000000
+        Size.Height = 432.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object listaClientes: TListView
+          ItemAppearanceClassName = 'TListItemAppearance'
+          ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+          HeaderAppearanceClassName = 'TListHeaderObjects'
+          FooterAppearanceClassName = 'TListHeaderObjects'
+          Align = Client
+          Size.Width = 640.000000000000000000
+          Size.Height = 385.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnItemClick = listaClientesItemClick
+          DeleteButtonText = 'Apagar'
+          SearchVisible = True
+        end
+        object lblSubTitulo: TLabel
+          Align = Top
+          StyledSettings = [Family, FontColor]
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 20.000000000000000000
+          Size.Width = 630.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 'Lista de clientes'
+          TabOrder = 2
+        end
+      end
+      object actionBar2: TRectangle
+        Align = Top
+        Fill.Color = xFF3D9ADC
+        Size.Width = 640.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblTitulo2: TLabel
+          Align = Client
+          StyledSettings = [Family]
+          Size.Width = 544.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claWhite
+          TextSettings.WordWrap = False
+          Text = 'Clientes'
+          TabOrder = 0
+        end
+        object btNovoCliente: TButton
+          Align = Right
+          IconTintColor = claWhite
+          Position.X = 592.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'additembutton'
+          TabOrder = 1
+          OnClick = btNovoClienteClick
+        end
+        object btVoltar1: TButton
+          Align = Left
+          IconTintColor = claWhite
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'backtoolbutton'
+          TabOrder = 2
+          OnClick = btVoltar2Click
+        end
+      end
+    end
+    object TabItem3: TTabItem
+      CustomIcon = <
+        item
+          Width = 96
+          Height = 96
+          PNG = {
+            89504E470D0A1A0A0000000D4948445200000060000000600806000000E29877
+            38000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            02BC49444154785EEDDDBF8BD3601CC7F1A40752F007AD08D24184AE8A430575
+            17BDBFA0E02A96DA3F4044371D5D2A880E4DB9597016BCF37FB8C22DDD5C9C04
+            DD74103489DF98A74B5B8E3C89F2B9A6EF1784E7470869BF9F366D3AF4090000
+            00000000B03542D79636180CAE341A8D07D6BD9BA6E9C5300C2FE47BEAC99EE3
+            376BBED8F6D19EF7DE643299FFDD5152E900FAFDFEA956AB35B6828F6CB893CF
+            6E9DD802796335781445D12F37E7A554E15CF1DFDB89EFD9B091CF6EA586D5E0
+            A6B537BADDEEBBF97C1EE7D3C5952A5EBBDD7E6527BEE38608825DABC94BD7F7
+            E27D091A8D4657E3383EB200B6F995BF4E6C35B9E6FB99E05DC424491E52FCB5
+            76ECF360E8FA859529E46DD7628905E05D1BEF00EC24975C174BECCA70D9750B
+            F30EC04E72C675B1EAAC6B0BE35A2E4600620420E67D1F301C0E53D7FD2FEC96
+            BEF2EF53C739698F9F7780180188118018018811801801881180D889BB0FD874
+            DC076C1802102300310210230031021023003102102300310210230031021023
+            0031021023003102102300310210230031021023003102102300310210230031
+            02102300B15A0790A6E98B6C73436F558F2FA2B60158E19E4FA7D327D996F5DD
+            7461558F2FAA9601B8E23D73C320EBFB14B1EAF13E6A17C072F1168A16B1EAF1
+            BE6A17C0BAE22D1CB76FA1EAF1BE6AFD21BC0908408C00C408408C00C408408C
+            00C408408C00C408408C00C4CAFC57C40F6B4EE7232CF91E45D139D72FA4CC3B
+            E0B36BB1CABB366502D8772D567D706D61DE012449B2678DF742057597A6E96F
+            6BB2DA78F15E4163369B7DEDF57AED300C6FB92918ABC7D8AEFF6FDDB0B052DF
+            82EC648FAD39C847B057FF7EA7D379EA865E4AAD2173787898646BA6349BCDF3
+            16C6759BDAD6AFB3D9223EAFAD06F7C7E3717609F256F96F8217CB58D903D9B5
+            07D2B5A966BEA7B67EDAF6C99EEFC1BF58C60A000000000000DB2208FE0026B4
+            DA353604CFCB0000000049454E44AE426082}
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'tabitemcustom'
+      TabOrder = 0
+      Text = 'PRODUTOS'
+      object actionBar3: TRectangle
+        Align = Top
+        Fill.Color = xFF3D9ADC
+        Size.Width = 640.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblTitulo3: TLabel
+          Align = Client
+          StyledSettings = [Family]
+          Size.Width = 544.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claWhite
+          TextSettings.WordWrap = False
+          Text = 'Produtos'
+          TabOrder = 0
+        end
+        object btNovoProduto: TButton
+          Align = Right
+          IconTintColor = claWhite
+          Position.X = 592.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'additembutton'
+          TabOrder = 1
+          OnClick = btNovoProdutoClick
+        end
+        object btVoltar2: TButton
+          Align = Left
+          IconTintColor = claWhite
+          Size.Width = 48.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'backtoolbutton'
+          TabOrder = 2
+          OnClick = btVoltar2Click
+        end
+      end
+      object Label1: TLabel
+        Align = Top
+        StyledSettings = [Family, FontColor]
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 68.000000000000000000
+        Size.Width = 630.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Lista de produtos'
+        TabOrder = 1
+      end
+    end
+  end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json'
+    AcceptCharset = 'UTF-8, *;q=0.8'
+    BaseURL = 'http://oclab.com.br:9080/financeiro/cliente/listaClientes'
+    ContentType = 'application/x-www-form-urlencoded'
+    Params = <>
+    HandleRedirects = True
+    Left = 565
+    Top = 120
+  end
+  object RESTRequest1: TRESTRequest
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8'
+    Client = RESTClient1
+    Params = <>
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 565
+    Top = 168
+  end
+  object RESTResponse1: TRESTResponse
+    ContentType = 'application/json'
+    Left = 568
+    Top = 216
+  end
+end
