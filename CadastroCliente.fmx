@@ -264,21 +264,21 @@ object FormCadastroCliente: TFormCadastroCliente
     end
   end
   object RESTClient1: TRESTClient
-    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8'
+    Accept = 'application/json'
     AcceptCharset = 'UTF-8, *;q=0.8'
-    BaseURL = 'http://oclab.com.br:9080/financeiro/cliente/listaClientes'
+    AutoCreateParams = False
+    BaseURL = 'http://oclab.com.br:9080/financeiro/cliente/novoCliente'
+    ContentType = 'application/x-www-form-urlencoded'
     Params = <>
     HandleRedirects = True
     Left = 565
-    Top = 120
+    Top = 128
   end
   object RESTRequest1: TRESTRequest
-    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8'
+    Accept = 'application/json'
     Client = RESTClient1
-    Params = <
-      item
-        name = 'cpf'
-      end>
+    Method = rmPOST
+    Params = <>
     Response = RESTResponse1
     SynchronizedEvents = False
     Left = 565

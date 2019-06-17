@@ -9,14 +9,13 @@ uses
   IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdHTTP, FMX.Ani;
 
 type
-  TForm2 = class(TForm)
+  TFormSplash = class(TForm)
     Label1: TLabel;
     Layout1: TLayout;
     Image1: TImage;
     IdHTTP1: TIdHTTP;
     ProgressBar1: TProgressBar;
     Timer1: TTimer;
-    procedure FormShow(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
@@ -27,42 +26,42 @@ type
   end;
 
 var
-  Form2: TForm2;
+  FormSplash: TFormSplash;
 
 implementation
 
 {$R *.fmx}
 
-uses Inicial;
+uses Inicial, Login;
 
 
-procedure TForm2.FormShow(Sender: TObject);
+procedure TFormSplash.Timer1Timer(Sender: TObject);
 begin
-    carregaApp();
-end;
-
-procedure TForm2.Timer1Timer(Sender: TObject);
-begin
-    ProgressBar1.Value:= ProgressBar1.Position + 10;
+    ProgressBar1.Value:= ProgressBar1.Value + 10;
 
     if ProgressBar1.Value= 100 then
-      carregaApp();
+    begin  
+        Timer1.Enabled:= False;
+        Timer1.DisposeOf;
+        
+        carregaApp();
+    end;
 end;
 
-procedure TForm2.carregaApp();
+procedure TFormSplash.carregaApp();
 begin
     if verificaConexao() then
     begin
-        if FormInicial= nil then
-          Application.CreateForm(TFormInicial, FormInicial);
+        if FormLogin= nil then
+          Application.CreateForm(TFormLogin, FormLogin);
 
-          FormInicial.Show;
+          FormLogin.Show;
 
         Self.DisposeOf;
     end
 end;
 
-function TForm2.verificaConexao():boolean;
+function TFormSplash.verificaConexao():boolean;
 begin
     try
       IdHTTP1.Get('http://oclab.com.br:9080/financeiro/cliente/listaClientes');

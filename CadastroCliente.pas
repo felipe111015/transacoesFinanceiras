@@ -336,10 +336,9 @@ begin
     try
     arquivo:= PathZ('clientes.json');
     resposta := TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(TFile.ReadAllText(arquivo)), 0);
+      //RESTRequest1.Execute;
 
-      {RESTRequest1.Execute;
-
-      resposta  := RESTResponse1.JSONValue; }
+      //resposta  := RESTResponse1.JSONValue;
       stringJSON:= resposta.ToString;
     except
         on E: Exception do

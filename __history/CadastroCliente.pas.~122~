@@ -36,11 +36,11 @@ type
     btSalvar: TButton;
     listaContratos: TListView;
     Label1: TLabel;
+    Layout1: TLayout;
+    btNovoContrato: TButton;
     RESTClient1: TRESTClient;
     RESTRequest1: TRESTRequest;
     RESTResponse1: TRESTResponse;
-    Layout1: TLayout;
-    btNovoContrato: TButton;
     function validaCampos():String;
     procedure btVoltarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -59,7 +59,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    cpfCliente: Integer;
+    stringJSON:String;
+    cpfCliente: integer;
   end;
 
 var
@@ -87,6 +88,10 @@ end;
 
 procedure TFormCadastroCliente.FormShow(Sender: TObject);
 begin
+    getJSON();
+
+    listaContratos.Items.Clear;
+
     if cpfCliente= -1 then
     begin
         LiberaCampos();
@@ -97,7 +102,6 @@ begin
     end
     else
     begin
-        getJSON();
 
         btAlterarCliente.Visible:= True;
         btExcluirCliente.Visible:= True;
@@ -267,7 +271,7 @@ var
   i: Integer;
   ItemAdd : TListViewItem;
 begin
-    jv:= TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(FormInicial.stringJSON), 0);
+    jv:= TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(stringJSON), 0);
     ja := jv as TJSONArray;
 
     JSONObj := (ja.Items[pos] as TJSONObject);
@@ -319,11 +323,6 @@ begin
                     exit;
                 end;
 
-    if not CnpjCpfValido(cpCpf.Text) then
-    begin
-        result:= 'CPF Inválido';
-        exit;
-    end;
 
     result:= '';
 end;
@@ -332,16 +331,70 @@ end;
 function TFormCadastroCliente.getJSON():TJSONValue;
 var
   resposta: TJSONValue;
+  arquivo: TFileName;
+
+  request:TRESTRequest;
+  response:TRESTResponse;
+  client  :TRESTClient;
+  lparam: TRESTRequestParameter;
 begin
+    client:= TRESTClient.Create('http://oclab.com.br:9080/financeiro/cliente/novoCliente');
+
     try
+      request:= TRESTRequest.Create(nil);
+      try
+        response:= TRESTResponse.Create(nil);
+        try
+          request.Client:= client;
+          request.Response:= response;
+
+          RESTRequest1.Params.Clear;
+          RESTRequest1.Accept:= 'application/json';
+          RESTRequest1.Method:= rmPOST;
+          RESTResponse1.RootElement:= '';
+
+          lparam:= RESTRequest1.Params.AddItem;
+          lparam.name:='cpf';
+          lparam.Value:='123';
+          lparam.ContentType:= ctAPPLICATION_JSON;
+          lparam.Kind:= pkGETorPOST;
+
+          request.Execute;
+
+          if response.Status.Success then
+          showmessage(response.StatusText)
+          else
+          showmessage(response.Content)
+        finally
+
+        end;
+      finally
+
+      end;
+    finally
+
+    end;
+
+
+
+
+
+
+
+
+    {try
+    arquivo:= PathZ('clientes.json');
+    //resposta := TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(TFile.ReadAllText(arquivo)), 0);
+
+      RESTRequest1.Method:= TRESTRequestMethod.rmGET;
       RESTRequest1.Execute;
 
       resposta  := RESTResponse1.JSONValue;
-      FormInicial.stringJSON:= resposta.ToString;
+      stringJSON:= resposta.ToString;
     except
         on E: Exception do
           ShowMessage(E.Message)
-    end;
+    end; }
     result:= resposta;
 end;
 end.

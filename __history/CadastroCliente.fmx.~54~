@@ -235,7 +235,7 @@ object FormCadastroCliente: TFormCadastroCliente
     Size.Width = 640.000000000000000000
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 8
+    TabOrder = 5
     object Label1: TLabel
       Align = Client
       StyledSettings = [Family, FontColor]
@@ -264,28 +264,29 @@ object FormCadastroCliente: TFormCadastroCliente
     end
   end
   object RESTClient1: TRESTClient
-    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8'
     AcceptCharset = 'UTF-8, *;q=0.8'
-    BaseURL = 'http://oclab.com.br:9080/financeiro/contratos/contratos'
+    BaseURL = 'http://oclab.com.br:9080/financeiro/cliente/listaClientes'
     Params = <>
     HandleRedirects = True
-    Left = 392
-    Top = 72
+    Left = 565
+    Top = 120
   end
   object RESTRequest1: TRESTRequest
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8'
     Client = RESTClient1
     Params = <
       item
-        name = 'nome'
-        Value = '42340998808'
+        name = 'cpf'
       end>
     Response = RESTResponse1
     SynchronizedEvents = False
-    Left = 320
-    Top = 72
+    Left = 565
+    Top = 168
   end
   object RESTResponse1: TRESTResponse
-    Left = 240
-    Top = 72
+    ContentType = 'application/json'
+    Left = 568
+    Top = 216
   end
 end

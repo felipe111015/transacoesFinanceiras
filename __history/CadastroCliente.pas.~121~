@@ -36,13 +36,11 @@ type
     btSalvar: TButton;
     listaContratos: TListView;
     Label1: TLabel;
+    Layout1: TLayout;
+    btNovoContrato: TButton;
     RESTClient1: TRESTClient;
     RESTRequest1: TRESTRequest;
     RESTResponse1: TRESTResponse;
-    Layout1: TLayout;
-    btNovoContrato: TButton;
-    IdHTTP: TIdHTTP;
-    IdSSLIOHandlerSocketOpenSSL1: TIdSSLIOHandlerSocketOpenSSL;
     function validaCampos():String;
     procedure btVoltarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -61,7 +59,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    cpfCliente: Integer;
+    stringJSON:String;
+    cpfCliente: integer;
   end;
 
 var
@@ -89,6 +88,8 @@ end;
 
 procedure TFormCadastroCliente.FormShow(Sender: TObject);
 begin
+    getJSON();
+
     listaContratos.Items.Clear;
 
     if cpfCliente= -1 then
@@ -270,7 +271,7 @@ var
   i: Integer;
   ItemAdd : TListViewItem;
 begin
-    jv:= TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(FormInicial.stringJSON), 0);
+    jv:= TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(stringJSON), 0);
     ja := jv as TJSONArray;
 
     JSONObj := (ja.Items[pos] as TJSONObject);
@@ -322,11 +323,6 @@ begin
                     exit;
                 end;
 
-    if not CnpjCpfValido(cpCpf.Text) then
-    begin
-        result:= 'CPF Inválido';
-        exit;
-    end;
 
     result:= '';
 end;
@@ -334,28 +330,70 @@ end;
 
 function TFormCadastroCliente.getJSON():TJSONValue;
 var
-  URL, Retorno: String;
-  dados: TStrings;
+  resposta: TJSONValue;
+  arquivo: TFileName;
+
+  request:TRESTRequest;
+  response:TRESTResponse;
+  client  :TRESTClient;
+  lparam: TRESTRequestParameter;
 begin
-  URL := 'http://oclab.com.br:9080/financeiro/cliente/novoCliente';
-  dados := TStringList.Create;
+    client:= TRESTClient.Create('http://oclab.com.br:9080/financeiro/cliente/novoCliente');
 
-  // Init request:
-  try
-    idHttp.Request.ContentType := 'application/json';
-    idhttp.Request.Charset := 'UTF-8';
-    IdHttp.IOHandler := IdSSLIOHandlerSocketOpenSSL1;
+    try
+      request:= TRESTRequest.Create(nil);
+      try
+        response:= TRESTResponse.Create(nil);
+        try
+          request.Client:= client;
+          request.Response:= response;
 
-    idHttp.Response.ContentType := 'application/json';
-    idHttp.Response.CharSet := 'UTF-8';
+          RESTRequest1.Params.Clear;
+          RESTRequest1.Method:= rmGET;
+          RESTResponse1.RootElement:= '';
 
-    dados.Add('filiep');
+          lparam:= RESTRequest1.Params.AddItem;
+          lparam.name:='cpf';
+          lparam.Value:='123';
+          lparam.ContentType:= ctAPPLICATION_JSON;
+          lparam.Kind:= pkGETorPOST;
 
-    idHttp.Post(URL, dados);
+          request.Execute;
 
-    //> Também tentei assim mas tb não funcionou
-    //>Retorno := idHttp.Post(URL, JsonStreamEnvio);
-   finally
-   end;
+          if response.Status.Success then
+          showmessage(response.StatusText)
+          else
+          showmessage(response.Content)
+        finally
+
+        end;
+      finally
+
+      end;
+    finally
+
+    end;
+
+
+
+
+
+
+
+
+    try
+    arquivo:= PathZ('clientes.json');
+    //resposta := TJSONObject.ParseJSONValue(TEncoding.ASCII.GetBytes(TFile.ReadAllText(arquivo)), 0);
+
+      RESTRequest1.Method:= TRESTRequestMethod.rmGET;
+      RESTRequest1.Execute;
+
+      resposta  := RESTResponse1.JSONValue;
+      stringJSON:= resposta.ToString;
+    except
+        on E: Exception do
+          ShowMessage(E.Message)
+    end;
+    result:= resposta;
 end;
 end.

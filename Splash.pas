@@ -68,11 +68,8 @@ begin
 
       result:= True;
     except
-        on E: Exception do
-        begin
-            ShowMessage(E.Message);
-            result:= False
-        end;
+        ShowMessage('Falha de comunicação com o servidor!');
+        result:= False
     end;
 end;
 
