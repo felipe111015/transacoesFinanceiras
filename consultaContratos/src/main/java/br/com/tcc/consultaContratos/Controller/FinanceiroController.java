@@ -46,9 +46,11 @@ public class FinanceiroController {
 	@RequestMapping(value = "/contrato/novoContrato", method = RequestMethod.POST)
 	public ResponseEntity<Contrato> novoContrato(@RequestBody Contrato contrato) {
 		try {
+			
 			Contrato contratoFinal = serviceContratos.calculaValorContrato(contrato);
 			serviceContratos.criarContrato(contratoFinal);
 			return ResponseEntity.status(HttpStatus.OK).body(contratoFinal);
+			
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}

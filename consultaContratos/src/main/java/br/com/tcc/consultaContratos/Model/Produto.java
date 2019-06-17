@@ -6,20 +6,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Produto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer codigoProduto;
+	private long codigoProduto;
 	private String nome;
 	private String descricao;
 	private  double valor;
 
-	@OneToMany
-	private List<Contrato> contrato;
+	/*@OneToMany
+	private List<Contrato> contrato;*/
 
 	public Produto() {
 
@@ -31,14 +30,14 @@ public class Produto {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.valor = valor;
-		this.contrato = contrato;
+		//this.contrato = contrato;
 	}
 
-	public Integer getCodigoProduto() {
+	public long getCodigoProduto() {
 		return codigoProduto;
 	}
 
-	public void setId(Integer codigoProduto) {
+	public void setId(long codigoProduto) {
 		this.codigoProduto = codigoProduto;
 	}
 
@@ -66,12 +65,12 @@ public class Produto {
 		this.valor = valor;
 	}
 
-	public List<Contrato> getContrato() {
+	/*public List<Contrato> getContrato() {
 		return contrato;
-	}
+	}*/
 
-	public void setContrato(List<Contrato> contrato) {
+	/*public void setContrato(List<Contrato> contrato) {
 		this.contrato = contrato;
-	}
+	}*/
 
 }
