@@ -7,10 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Contrato {
@@ -18,21 +16,26 @@ public class Contrato {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long numeroContrato;
+
 	private double valor;
+
 	private int qtdeParcelas;
+	private double valorParcela;
+
 	private LocalDate dataContratacao;
+
 	@ManyToOne
 	private Cliente cliente;
-	@OneToMany
-	@JsonBackReference
+
+	@ManyToMany
 	private List<Produto> produtos;
 
 	public Contrato() {
 
 	}
 
-	public Contrato(long numeroContrato, double valor, int qtdeParcelas, LocalDate dataContratacao, Cliente cliente,
-			List<Produto> produtos) {
+	public Contrato(double valorParcela, long numeroContrato, double valor, int qtdeParcelas, LocalDate dataContratacao,
+			Cliente cliente, List<Produto> produtos) {
 		super();
 		this.numeroContrato = numeroContrato;
 		this.valor = valor;
@@ -40,6 +43,7 @@ public class Contrato {
 		this.dataContratacao = dataContratacao;
 		this.cliente = cliente;
 		this.produtos = produtos;
+		this.valorParcela = valorParcela;
 	}
 
 	public long getNumeroContrato() {
@@ -88,6 +92,14 @@ public class Contrato {
 
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
+	}
+
+	public double getValorParcela() {
+		return valorParcela;
+	}
+
+	public void setValorParcela(double valorParcela) {
+		this.valorParcela = valorParcela;
 	}
 
 }

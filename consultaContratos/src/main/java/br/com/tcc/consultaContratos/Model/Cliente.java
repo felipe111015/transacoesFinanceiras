@@ -2,24 +2,23 @@ package br.com.tcc.consultaContratos.Model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Cliente {
 
 	@Id
+	@PrimaryKeyJoinColumn
 	private String cpf;
 	private String nome;
 	private String agencia;
 	private String conta;
-	@OneToMany
-	@JsonBackReference
-	private List<Contrato> contrato;
+	
+	//@JsonBackReference
+	/*@OneToMany
+	private List<Contrato> contrato;*/
 
 	public Cliente() {
 
@@ -31,7 +30,7 @@ public class Cliente {
 		this.nome = nome;
 		this.agencia = agencia;
 		this.conta = conta;
-		this.contrato = contrato;
+		//this.contrato = contrato;
 	}
 
 	public String getCpf() {
@@ -66,12 +65,12 @@ public class Cliente {
 		this.conta = conta;
 	}
 
-	public List<Contrato> getContrato() {
+	/*public List<Contrato> getContrato() {
 		return contrato;
-	}
+	}*/
 
-	public void setContrato(List<Contrato> contrato) {
+	/*public void setContrato(List<Contrato> contrato) {
 		this.contrato = contrato;
-	}
+	}*/
 
 }
