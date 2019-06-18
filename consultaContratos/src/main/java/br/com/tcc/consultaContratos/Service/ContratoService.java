@@ -35,4 +35,12 @@ public class ContratoService {
 		}
 		return contrato;
 	}
+
+	public double calculaValorParcela(Contrato contrato) {
+		double valorParcela = 0;
+
+		valorParcela = contrato.getValor() / contrato.getQtdeParcelas();
+
+		return valorParcela;
+	}
 }

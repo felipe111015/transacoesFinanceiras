@@ -21,7 +21,7 @@ import br.com.tcc.consultaContratos.Service.ContratoService;
 import br.com.tcc.consultaContratos.Service.ProdutoService;
 
 @RestController
-@RequestMapping(value = "/financeiro")
+
 public class FinanceiroController {
 
 	@Autowired
@@ -46,11 +46,13 @@ public class FinanceiroController {
 	@RequestMapping(value = "/contrato/novoContrato", method = RequestMethod.POST)
 	public ResponseEntity<Contrato> novoContrato(@RequestBody Contrato contrato) {
 		try {
-			
+
 			Contrato contratoFinal = serviceContratos.calculaValorContrato(contrato);
+			double valorParcela = serviceContratos.calculaValorParcela(contrato);
+			contratoFinal.setValorParcela(valorParcela);
 			serviceContratos.criarContrato(contratoFinal);
 			return ResponseEntity.status(HttpStatus.OK).body(contratoFinal);
-			
+
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
