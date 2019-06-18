@@ -15,10 +15,6 @@ public class Cliente {
 	private String nome;
 	private String agencia;
 	private String conta;
-	
-	//@JsonBackReference
-	/*@OneToMany
-	private List<Contrato> contrato;*/
 
 	public Cliente() {
 
@@ -30,7 +26,7 @@ public class Cliente {
 		this.nome = nome;
 		this.agencia = agencia;
 		this.conta = conta;
-		//this.contrato = contrato;
+
 	}
 
 	public String getCpf() {
@@ -64,13 +60,5 @@ public class Cliente {
 	public void setConta(String conta) {
 		this.conta = conta;
 	}
-
-	/*public List<Contrato> getContrato() {
-		return contrato;
-	}*/
-
-	/*public void setContrato(List<Contrato> contrato) {
-		this.contrato = contrato;
-	}*/
 
 }

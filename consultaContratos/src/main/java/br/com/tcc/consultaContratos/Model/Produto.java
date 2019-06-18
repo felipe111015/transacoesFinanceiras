@@ -1,7 +1,5 @@
 package br.com.tcc.consultaContratos.Model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,22 +13,19 @@ public class Produto {
 	private long codigoProduto;
 	private String nome;
 	private String descricao;
-	private  double valor;
-
-	/*@OneToMany
-	private List<Contrato> contrato;*/
+	private double valor;
 
 	public Produto() {
 
 	}
 
-	public Produto(Integer codigoProduto, String nome, String descricao, double valor, List<Contrato> contrato) {
+	public Produto(Integer codigoProduto, String nome, String descricao, double valor) {
 		super();
 		this.codigoProduto = codigoProduto;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.valor = valor;
-		//this.contrato = contrato;
+
 	}
 
 	public long getCodigoProduto() {
@@ -64,13 +59,5 @@ public class Produto {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-
-	/*public List<Contrato> getContrato() {
-		return contrato;
-	}*/
-
-	/*public void setContrato(List<Contrato> contrato) {
-		this.contrato = contrato;
-	}*/
 
 }

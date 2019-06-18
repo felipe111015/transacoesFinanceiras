@@ -2,45 +2,18 @@ package br.com.tcc.consultaContratos.Service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.tcc.consultaContratos.Model.Contrato;
-import br.com.tcc.consultaContratos.Model.Produto;
-import br.com.tcc.consultaContratos.Repository.ContratoRepository;
+import br.com.tcc.consultaContratos.exceptions.ContratoException;
 
 @Service
-public class ContratoService {
+public interface ContratoService {
 
-	@Autowired
-	ContratoRepository repository;
+	public void criarContrato(Contrato contrato) throws ContratoException;
 
-	public List<Contrato> buscaContratos(String cpf) {
-		List<Contrato> contratos = repository.buscarContratos(cpf);
+	public List<Contrato> buscaContratos(String cpf) throws ContratoException;
+	
+	public Iterable<Contrato> listaContratos() throws ContratoException;
 
-		return contratos;
-	}
-
-	public void criarContrato(Contrato contrato) {
-		repository.save(contrato);
-
-	}
-
-	public Contrato calculaValorContrato(Contrato contrato) {
-		List<Produto> produtos = contrato.getProdutos();
-
-		for (Produto produto : produtos) {
-			double valorTotal = contrato.getValor() + produto.getValor();
-			contrato.setValor(valorTotal);
-		}
-		return contrato;
-	}
-
-	public double calculaValorParcela(Contrato contrato) {
-		double valorParcela = 0;
-
-		valorParcela = contrato.getValor() / contrato.getQtdeParcelas();
-
-		return valorParcela;
-	}
 }
