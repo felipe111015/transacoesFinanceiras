@@ -17,7 +17,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	public Produto novoProduto(Produto produto) throws ProdutoException {
 		Produto novoProduto = null;
 		try {
-			produtoRepository.save(produto);
+			novoProduto = produtoRepository.save(produto);
 		} catch (Exception e) {
 			throw new ProdutoException("Erro ao cadastrar produto!");
 		}
