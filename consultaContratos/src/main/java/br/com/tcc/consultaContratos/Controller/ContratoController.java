@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.tcc.consultaContratos.DTO.InPutCpfDto;
@@ -16,13 +17,13 @@ import br.com.tcc.consultaContratos.Service.Impl.ContratoServiceImpl;
 import br.com.tcc.consultaContratos.exceptions.ContratoException;
 
 @RestController
-
+@RequestMapping(value="/contrato")
 public class ContratoController {
 
 	@Autowired
 	ContratoServiceImpl serviceContratos;
 
-	@GetMapping(value = "/contrato/contratosCliente")
+	@GetMapping(value = "/contratosCliente")
 	public ResponseEntity<List<Contrato>> consultaContratos(@RequestBody InPutCpfDto cpf) {
 		List<Contrato> contratos = null;
 		try {
@@ -34,7 +35,7 @@ public class ContratoController {
 		}
 	}
 
-	@GetMapping(value = "/contrato/listaContratos")
+	@GetMapping(value = "/listaContratos")
 	public ResponseEntity<Iterable<Contrato>> listaContratos() {
 		Iterable<Contrato> listaContratos = null;
 		try {
@@ -46,7 +47,7 @@ public class ContratoController {
 		}
 	}
 
-	@PostMapping(value = "/contrato/novoContrato")
+	@PostMapping(value = "/novoContrato")
 	public ResponseEntity<Contrato> novoContrato(@RequestBody Contrato contrato) {
 		try {
 

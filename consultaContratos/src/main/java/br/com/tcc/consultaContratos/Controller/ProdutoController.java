@@ -6,18 +6,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.tcc.consultaContratos.Model.Produto;
 import br.com.tcc.consultaContratos.Service.Impl.ProdutoServiceImpl;
 
 @RestController
+@RequestMapping(value = "/produto")
 public class ProdutoController {
 
 	@Autowired
 	ProdutoServiceImpl produtoService;
 
-	@PostMapping(value = "/produto/novoProduto")
+	@PostMapping(value = "/novoProduto")
 	public ResponseEntity<Produto> novoProduto(@RequestBody Produto produto) {
 		try {
 			Produto novoProduto = produtoService.novoProduto(produto);
@@ -28,7 +30,7 @@ public class ProdutoController {
 		}
 	}
 
-	@GetMapping(value = "/produto/listaProdutos")
+	@GetMapping(value = "/listaProdutos")
 	public ResponseEntity<Iterable<Produto>> listaProdutos() {
 		try {
 			Iterable<Produto> listaProdutos = produtoService.listaProdutos();

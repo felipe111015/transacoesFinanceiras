@@ -6,18 +6,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.tcc.consultaContratos.Model.Cliente;
 import br.com.tcc.consultaContratos.Service.Impl.ClienteServiceImpl;
 
 @RestController
+@RequestMapping(value="/cliente")
 public class ClienteController {
 
 	@Autowired
 	ClienteServiceImpl clienteService;
 
-	@PostMapping(value = "/cliente/novoCliente")
+	@PostMapping(value = "/novoCliente")
 	public ResponseEntity<Cliente> novoCliente(@RequestBody Cliente cliente) {
 		try {
 			Cliente ClienteCadastrado = clienteService.novoCliente(cliente);
@@ -28,7 +30,7 @@ public class ClienteController {
 		}
 	}
 
-	@GetMapping(value = "/cliente/listaClientes")
+	@GetMapping(value = "/listaClientes")
 	public ResponseEntity<Iterable<Cliente>> buscaClientes() {
 		try {
 
