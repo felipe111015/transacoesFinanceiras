@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
@@ -15,18 +16,20 @@ public class Cliente {
 	private String nome;
 	private String agencia;
 	private String conta;
+	@ManyToMany
+	private List<Endereco> endereco;
 
 	public Cliente() {
 
 	}
 
-	public Cliente(String cpf, String nome, String agencia, String conta, List<Contrato> contrato) {
+	public Cliente(String cpf, String nome, String agencia, String conta, List<Endereco> endereco) {
 		super();
 		this.cpf = cpf;
 		this.nome = nome;
 		this.agencia = agencia;
 		this.conta = conta;
-
+		this.endereco = endereco;
 	}
 
 	public String getCpf() {
@@ -59,6 +62,14 @@ public class Cliente {
 
 	public void setConta(String conta) {
 		this.conta = conta;
+	}
+
+	public List<Endereco> getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(List<Endereco> endereco) {
+		this.endereco = endereco;
 	}
 
 }
